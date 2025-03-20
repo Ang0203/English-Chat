@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>English Chat</title>
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/public/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/script/main.js"></script>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <!-- Voice Recording Overlay -->
+    <div id="recordingOverlay" class="overlay d-none">
+        <div class="overlay-content">
+            <p class="fw-bold">Recording...</p>
+            <button id="stopRecordingBtn" class="btn btn-danger"><i class="bi bi-stop-circle"></i>Stop</button>
+        </div>
+    </div>
+
+    <!-- Chat Panel -->
+    <div class="w-100 max-w-2xl bg-white shadow rounded d-flex flex-column" style="height: 90vh; max-width: 600px;">
+        <!-- Title Bar -->
+        <div class="p-3 border-bottom bg-light d-flex align-items-center">
+            
+            <div class="flex-grow-1 text-center fw-bold" id="chatTitle">(Loading...)</div>
+            <button id="clearChatBtn" class="btn btn-danger btn-sm" title="Xóa Tin Nhắn">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+
+
+        <!-- Chat Box -->
+        <div id="chatBox" class="flex-grow-1 p-3 overflow-auto d-flex flex-column">
+            <!-- Messages appear here dynamically -->
+        </div>
+
+        <!-- Input Box -->
+        <div class="p-3 border-top d-flex align-items-center">
+            <input id="userInput" type="text" class="form-control me-2">
+            
+            <button id="sendBtn" class="btn btn-dark" disabled>
+                <i id="sendIcon" class="bi bi-mic"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Language Switch Button -->
+    <div class="position-fixed top-0 start-0 p-3">
+        <div class="dropdown">
+            <button id="languageBtn" class="btn btn-light shadow-sm border border-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-globe"></i> <span id="languageText"></span>
+            </button>
+            <!-- Dropdown menu with scroll -->
+            <ul class="dropdown-menu" id="languageDropdown" style="max-height: 200px; overflow-y: auto;">
+                <!-- Language Options -->
+            </ul>
+        </div>
+    </div>
+  
+    <!-- Error Toast -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="errorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="errorText"></div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Author Name -->
+    <div class="position-fixed top-0 end-0 p-3" style="font-size: 0.8rem;">
+        Dương Trần Bình An
+    </div>
+</body>
+</html>
