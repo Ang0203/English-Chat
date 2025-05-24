@@ -14,6 +14,9 @@ importers:
       dompurify:
         specifier: ^3.2.5
         version: 3.2.5
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
       express:
         specifier: ^4.21.2
         version: 4.21.2
@@ -24,9 +27,6 @@ importers:
         specifier: ^4.89.0
         version: 4.89.0
     devDependencies:
-      dotenv:
-        specifier: ^16.4.7
-        version: 16.4.7
       morgan:
         specifier: ^1.10.0
         version: 1.10.0
