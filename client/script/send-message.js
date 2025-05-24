@@ -44,9 +44,9 @@ export async function sendMessage(chatBox, input, button, icon) {
 
         appendMessage(reply, "bot");
     } catch (err) {
+        chatBox.lastChild?.remove();
         await showError("errorSendingMessage", err.message);
     } finally {
-        chatBox.lastChild?.remove();
         setSendingState(false, input, button, icon, inputPlaceholder);
     }
 }

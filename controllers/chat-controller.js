@@ -41,7 +41,7 @@ chatController.chat = asyncHandler(async (req, res) => {
     presence_penalty: 1.0,
     repetition_penalty: 1.0
   });
-console.log(history);
+  
   const reply = completion.choices[0].message.content;
   return res.status(200).json({ reply });
 });
