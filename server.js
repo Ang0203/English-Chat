@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import express from "express";
-import cors from "cors";
 import { fileURLToPath } from "url";
 import path from "path";
 import morgan from "morgan";
@@ -15,22 +14,6 @@ const app = express();
 if (process.env.ENV === "development"){
     app.use(morgan("dev"));
 };
-
-// [CORS]
-const allowedOrigins = process.env.CLIENT_URLS 
-    ? process.env.CLIENT_URLS.split(",") 
-    : ["http://localhost:22700"];
-app.use(cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("CORS policy error"), false);
-      }
-    },
-    methods: ["GET", "POST", "DELETE"],
-    credentials: true
-}));
 
 // [Static files]
 const distPath = path.join(__dirname, "dist");
